@@ -1,3 +1,4 @@
+import functions.Crawler;
 import functions.pingSite;
 
 import java.util.ArrayList;

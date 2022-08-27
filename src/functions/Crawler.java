@@ -1,3 +1,5 @@
+package functions;
+
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -15,7 +17,7 @@ public class Crawler implements Runnable{
     private ArrayList<String> visitedLinks = new ArrayList<String >();
 
     public Crawler(String url, int id){
-        System.out.println("Crawler initialized");
+        System.out.println("functions.Crawler initialized");
         first_url = url;
         ID = id;
         //DEPTH = depth;
