@@ -16,11 +16,11 @@ public class Crawler implements Runnable{
     private final String first_url;
     private ArrayList<String> visitedLinks = new ArrayList<String >();
 
-    public Crawler(String url, int id){
+    public Crawler(String url, int id,int depth){
         System.out.println("functions.Crawler initialized");
         first_url = url;
         ID = id;
-        //DEPTH = depth;
+        DEPTH = depth;
 
         thread = new Thread(this);
         thread.start();
