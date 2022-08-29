@@ -1,53 +1,17 @@
 import functions.Crawler;
-import functions.pingSite;
-import jdk.jshell.execution.JdiExecutionControlProvider;
-
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class userCLI {
-    /*public static void Input(Scanner scn){
-        String userInput = scn.nextLine();
-        userSentUrl(userInput);
-        //int botDepth = scn.nextInt();
-        //InputLoop(userInput);
-    }*/
-    //This piece of code pings the site to check for responsiveness.
-    //TODO: Ensure that more than 1 url can be sent through this code.
-    /*private static void userSentUrl(String urlInput){
-        if(validateURL(urlInput)){
-            System.out.println("Pinging site " + urlInput);
-            if(!pingSite.pingURL(urlInput,100)){
-                System.out.println("Connection timed out.");
-            }
-            else{
-                System.out.println("Connection went through, beginning crawl process.");
-                //StartCrawler(urlInput);
-            }
-        }
-        else{
-            System.out.println("Error, not a valid url. Try again.");
-        }
-    }*/
-    /*private static void InputLoop(String userInput){
-            if(validateURL(userInput)){
-                System.out.println("Pinging site " + userInput);
-                if(!pingSite.pingURL(userInput,100)){
-                    System.out.println("Connection timed out.");
-                }
-                else{
-                    System.out.println("Connection went through, beginning crawl process.");
-                    StartCrawler(userInput);
-                }
-            }
-            else{
-                System.out.println("Error, not a valid url. Try again.");
-            }
-    }*/
+    public static void PrepareCrawler(Set<String> set){
+        for (int i = 0; i<= set.size(); i++){
 
-    public static void StartCrawler(String userInput,int Depth){
+        }
+    }
+
+    private static void StartCrawler(String userInput,int Depth){
         ArrayList<Crawler> bots = new ArrayList<>();
         bots.add(new Crawler(userInput,1, Depth));
 
