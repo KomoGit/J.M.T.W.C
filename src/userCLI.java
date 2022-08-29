@@ -7,7 +7,8 @@ import java.util.regex.Pattern;
 public class userCLI {
     public static void PrepareCrawler(Set<String> set){
         for (int i = 0; i<= set.size(); i++){
-
+            //TODO: Here we will validate all the inputs,
+            // if an input is invalid we should print out which ones were to user.
         }
     }
 
