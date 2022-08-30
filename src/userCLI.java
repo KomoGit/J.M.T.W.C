@@ -1,6 +1,7 @@
 import functions.Crawler;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,61 +11,36 @@ public class userCLI {
 
     //TODO: Make the set private and apply get and set.
     public final Set<String> set = new HashSet<>();
-    private final Set<String> validURL = new HashSet<>();
+    //private final Set<String> validURL = new HashSet<>();
+    private final ArrayList<String> validURL = new ArrayList<>();
     public void prepareCrawler(){
-        //String[] arr = new String[set.size()];
-        ArrayList<String> arr = new ArrayList<String>(set.size());
-        for (int i = 0; i <= set.size(); i++){
-            //TODO:Here we will validate all the inputs (COMPLETED)
-            // if an input is invalid we should print out which ones were to the user (COMPLETED)
-            var validated = arr.stream().filter(this::validateURL).collect(Collectors.toSet());
-            if(validated.isEmpty()){
-                System.out.println("Warning, no viable URL found");
-                throw new IllegalArgumentException();
-            }else{
-                ArrayList<Crawler> bots = new ArrayList<>();
-                for (String url :validated) {
-                    //StartCrawler(bots);
-                }
-            }
-            /*try{
-                if(!validateURL(arr[i])){
-                    System.out.println("Invalid URL detected, removing the URL: " + arr[i]);
-                }
-                else{
-                    arr.add();
-                    //validURL.add(arr[i]);
-                }
-            }
-            catch (ArrayIndexOutOfBoundsException e){
-                System.out.println("URLs filtered. Total viable url(s): " + arr.length);
-                if(validURL.size() == 0){//(arr.length == 0){
-                    System.out.println("All URLs are invalid, try the process again.");
-                    return;
-                }
-            }
-            finally {
-                //TODO: Here you need to make sure the Crawler is started and fed valid URL.
-                System.out.println("bla bla bla");
-            }*/
-        }
-    }
-    /*private void setToArrayList(){
-        for (int i = 0;i<= set.size();i++){
-            arr.add(i)
-        }
-    }*/
-    public static void prepareCrawler(int depth){
 
+        ArrayList<String> arr = new ArrayList<>(set);
+        var validated = arr.stream().filter(this::validateURL).collect(Collectors.toSet());
+        validURL.addAll(validated);
+
+        if(validURL.isEmpty()){
+            System.out.println("Warning, no viable URL found");
+            throw new IllegalArgumentException();
+        }else{
+            System.out.println("Ready, number of bots that will be added: " + validURL.size());
+            Scanner scn = new Scanner(System.in);
+            System.out.println("Insert the depth you wish bot(s) to visit. (MAX 5 DEFAULT 3)");
+            int depth = scn.nextInt();
+            StartCrawler(depth);
+        }
     }
-    //For loop below ensures there are equal amount of bots for each URL provided;
-    private static void StartCrawler(ArrayList<Crawler> bots, int Depth){
-        //ArrayList<Crawler> bots = new ArrayList<>();
-        /*for(int i = 0; i<=URL.length;i++){
-            String readyURL = URL[i];
-            bots.add(new Crawler(readyURL,i,Depth));
-        }*/
-        //bots.add(new Crawler(userInput,1, Depth)); Adds single bot for testing reasons. Obsolete.
+    public void StartCrawler(int Depth){
+        ArrayList<Crawler> bots = new ArrayList<>();
+        try{
+            for (int i = 0; i <= validURL.size(); i++){
+                bots.add(new Crawler(validURL.get(i),i,Depth));
+            }
+        }
+        catch (IndexOutOfBoundsException e){
+            return;
+        }
+
         for(Crawler w : bots){
             try {
                 w.getThread().join();
