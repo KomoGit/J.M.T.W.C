@@ -5,17 +5,39 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class userCLI {
-    public static void PrepareCrawler(Set<String> set){
-        for (int i = 0; i<= set.size(); i++){
+    public static void prepareCrawler(Set<String> set){
+        String[] arr = new String[set.size()];
+        arr = set.toArray(arr);
+        for (int i = 0; i <= set.size(); i++){
             //TODO: Here we will validate all the inputs,
             // if an input is invalid we should print out which ones were to user.
+            try{
+                //Only internal set is being manipulated when .remove is ran.
+                if(!validateURL(arr[i])){
+                    set.remove(i);
+                    arr = set.toArray(arr);
+                    System.out.println("Invalid URL detected, removing the URL: " + arr[i]);
+                }
+            }
+            catch (ArrayIndexOutOfBoundsException e){
+                System.out.println("URLs filtered, beginning process.");
+            }
+            finally {
+                //TODO: Here you need to make sure the Crawler is started and fed valid URL.
+            }
         }
     }
+    public static void prepareCrawler(int depth){
 
-    private static void StartCrawler(String userInput,int Depth){
+    }
+    //For loop below ensures there are equal amount of bots for each URL provided;
+    private static void StartCrawler(String[] URL,int Depth){
         ArrayList<Crawler> bots = new ArrayList<>();
-        bots.add(new Crawler(userInput,1, Depth));
-
+        for(int i = 0; i<=URL.length;i++){
+            String readyURL = URL[i];
+            bots.add(new Crawler(readyURL,i,Depth));
+        }
+        //bots.add(new Crawler(userInput,1, Depth)); Adds single bot for testing reasons. Obsolete.
         for(Crawler w : bots){
             try {
                 w.getThread().join();
