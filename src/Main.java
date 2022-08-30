@@ -11,7 +11,7 @@ public class Main {
         System.out.print("Insert URLs, 5 at max: (TYPE BREAK IF YOU WISH TO STOP ADDING FURTHER URLS)");
         for(int i = 0; i < 5; i++){
             String URL = scn.nextLine();
-            if (URL.toLowerCase().equals("break")) {
+            if (URL.equalsIgnoreCase("break")) {
                 System.out.println("Breaking out of the loop");
                 break;
             }

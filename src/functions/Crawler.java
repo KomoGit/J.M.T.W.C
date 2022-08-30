@@ -7,24 +7,20 @@ import org.jsoup.nodes.Element;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Crawler implements Runnable{
 
     private static int DEPTH = 3;
-    private int ID;
-    private Thread thread;
+    private final int ID;
+    private final Thread thread;
     private final String first_url;
-    private ArrayList<String> visitedLinks = new ArrayList<String >();
+    private final ArrayList<String> visitedLinks = new ArrayList<>();
 
     public Crawler(String url, int id,int depth){
         System.out.println("functions.Crawler initialized");
         first_url = url;
         ID = id;
         DEPTH = depth;
-
         thread = new Thread(this);
         thread.start();
     }
