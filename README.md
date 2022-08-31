@@ -8,7 +8,7 @@ Credit mostly goes to [CodingWithTim](https://www.youtube.com/c/CodingWithTim) a
  
 ## Features
 
-- Multi-threaded Web Crawling (upcoming soon, it is in the name)
+- Multi-threaded Web Crawling.
 - Allowing user to choose what site they wanna crawl (via CLI).
 - Allowing user to customize and choose the depth of the bot(s).
 - Database storage of the links(Upcoming).
