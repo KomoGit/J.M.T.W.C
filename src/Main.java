@@ -15,7 +15,12 @@ public class Main {
                 System.out.println("Breaking out of the loop");
                 break;
             }
-            uCli.set.add(URL + "");
+            if(URL.contains("https://")){
+                uCli.set.add(URL);
+            }
+            else{
+                uCli.set.add("https://" + URL);
+            }
         }
         uCli.prepareCrawler();
     }

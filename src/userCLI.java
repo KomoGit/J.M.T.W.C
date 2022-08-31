@@ -11,7 +11,6 @@ public class userCLI {
 
     //TODO: Make the set private and apply get and set.
     public final Set<String> set = new HashSet<>();
-    //private final Set<String> validURL = new HashSet<>();
     private final ArrayList<String> validURL = new ArrayList<>();
     public void prepareCrawler(){
 
