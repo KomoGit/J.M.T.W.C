@@ -12,7 +12,7 @@ Credit mostly goes to [CodingWithTim](https://www.youtube.com/c/CodingWithTim) a
 - Allowing user to choose what site they wanna crawl (via CLI).
 - Allowing user to customize and choose the depth of the bot(s).
 - Database storage of the links(Upcoming).
-- Data sorting via file extensions received by bots.
+- Data sorting via file extensions received by bots(Also upcoming).
 - Perhaps more in the future.
 
 ## Usage
