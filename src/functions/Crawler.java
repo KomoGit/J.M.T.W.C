@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class Crawler implements Runnable{
     DatabaseINSERT dbIn = new DatabaseINSERT();
+    private final ArrayList<String> DataCollection = new ArrayList<>();
 
     private static int DEPTH = 3;
     private final int ID;
@@ -18,7 +19,7 @@ public class Crawler implements Runnable{
     private final ArrayList<String> visitedLinks = new ArrayList<>();
 
     public Crawler(String url, int id,int depth){
-        System.out.println("functions.Crawler initialized");
+        System.out.println("Crawler initialized");
         first_url = url;
         ID = id;
         DEPTH = depth;
@@ -54,8 +55,11 @@ public class Crawler implements Runnable{
                 System.out.println("\n**Bot ID:" + ID + " Received webpage at " + url);
                 String title = doc.title();
                 System.out.println(title);
-                dbIn.INSERTData(url,ID + "");
                 visitedLinks.add(url);
+                DataCollection.add(url);
+                DataCollection.add(ID + "");
+                DataCollection.add(title);
+                InsertDatabase();
                 return doc;
             }
             return null;
@@ -65,5 +69,11 @@ public class Crawler implements Runnable{
     }
     public Thread getThread(){
         return thread;
+    }
+    private void InsertDatabase(){
+        if(DataCollection.size() == 3){
+            dbIn.INSERTData(DataCollection);
+            DataCollection.clear();
+        }
     }
 }
