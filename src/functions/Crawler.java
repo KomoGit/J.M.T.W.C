@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Crawler implements Runnable{
+    DatabaseINSERT dbIn = new DatabaseINSERT();
 
     private static int DEPTH = 3;
     private final int ID;
@@ -53,6 +54,7 @@ public class Crawler implements Runnable{
                 System.out.println("\n**Bot ID:" + ID + " Received webpage at " + url);
                 String title = doc.title();
                 System.out.println(title);
+                dbIn.INSERTData(url,ID + "");
                 visitedLinks.add(url);
                 return doc;
             }

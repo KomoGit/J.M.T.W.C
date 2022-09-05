@@ -10,11 +10,11 @@ import java.util.stream.Collectors;
 public class userCLI {
 
     //TODO: Make the set private and apply get and set.
-    public final Set<String> set = new HashSet<>();
+    public final Set<String> URLSet = new HashSet<>();
     private final ArrayList<String> validURL = new ArrayList<>();
     public void prepareCrawler(){
 
-        ArrayList<String> arr = new ArrayList<>(set);
+        ArrayList<String> arr = new ArrayList<>(URLSet);
         var validated = arr.stream().filter(this::validateURL).collect(Collectors.toSet());
         validURL.addAll(validated);
 

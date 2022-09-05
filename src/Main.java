@@ -6,6 +6,9 @@ public class Main {
     //TODO: Make a unsafe version determined by arguments, allowing infinite amount of bots.
     public static void main(String[] args) {
         inputURL();
+//        if(dbIn.DatabaseConnection()){
+//            inputURL();
+//        }
     }
     private static void inputURL(){
         System.out.print("Insert URLs, 5 at max: (TYPE BREAK IF YOU WISH TO STOP ADDING FURTHER URLS)");
@@ -16,13 +19,12 @@ public class Main {
                 break;
             }
             if(URL.contains("https://")){
-                uCli.set.add(URL);
+                uCli.URLSet.add(URL);
             }
             else{
-                uCli.set.add("https://" + URL);
+                uCli.URLSet.add("https://" + URL);
             }
         }
         uCli.prepareCrawler();
     }
-
 }
