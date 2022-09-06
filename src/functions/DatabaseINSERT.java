@@ -36,14 +36,13 @@ public class DatabaseINSERT {
             statement.setString(1,Collection.get(0));
             statement.setString(2,Collection.get(1));
             statement.setString(3,Collection.get(2));
-            statement.executeBatch();
             statement.addBatch();
+            statement.executeBatch();
         }
         catch (SQLException e){
             System.out.println(e.getMessage());
         }
     }
-
     private Connection connect() {
         final String DBURL = "jdbc:sqlite:Database/SiteIndex";
         Connection conn = null;

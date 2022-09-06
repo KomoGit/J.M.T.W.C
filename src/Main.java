@@ -8,7 +8,6 @@ public class Main {
     private static DatabaseINSERT dbIn = new DatabaseINSERT();
     //TODO: Make a unsafe version determined by arguments, allowing infinite amount of bots.
     public static void main(String[] args) {
-        //inputURL();
         if(dbIn.CheckConnection()){
             inputURL();
         }
