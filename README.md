@@ -20,6 +20,12 @@ Credit mostly goes to [CodingWithTim](https://www.youtube.com/c/CodingWithTim) a
 - Determine depth of crawl for bots,
 - Press enter and let the magic happen.
 
+## Setup
+You are required to Create a folder inside named 'Database',
+- Create a SQLite Database inside the folder named : 'SiteIndex'
+- Inside this database, create a table named Sites.
+- Sites table should contain 3 rows : Web_Url,Bot_Id,Title. All of which are case sensitive.
+
 ## Current Known Bugs
 - Crawler when facing phone numbers crash out because it is not a viable URL.
 
