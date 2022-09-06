@@ -20,5 +20,8 @@ Credit mostly goes to [CodingWithTim](https://www.youtube.com/c/CodingWithTim) a
 - Determine depth of crawl for bots,
 - Press enter and let the magic happen.
 
+## Current Known Bugs
+- Crawler when facing phone numbers crash out because it is not a viable URL.
+
 ## Lisence
 You can modifiy and use the project as it is GPL-3 Lisence. As free as it gets when it comes to FOSS.
