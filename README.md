@@ -11,7 +11,7 @@ Credit mostly goes to [CodingWithTim](https://www.youtube.com/c/CodingWithTim) a
 - Multi-threaded Web Crawling.
 - Allowing user to choose which site(s) they wish to crawl (via CLI).
 - Allowing user to choose the depth of the bot(s).
-- Database storage of the links(Upcoming).
+- Database storage of the links.
 - Data sorting via file extensions received by bots(Also upcoming).
 - Perhaps more in the future.
 
