@@ -1,15 +1,15 @@
-import functions.DatabaseINSERT;
+import functions.databaseController;
 
 import java.util.Scanner;
 
 public class Main {
     private static final Scanner scn = new Scanner(System.in);
     private static final crawlerSetup CRAWLER_SETUP = new crawlerSetup();
-    private static final DatabaseINSERT dbIn = new DatabaseINSERT();
+    private static final databaseController dbCtrl = new databaseController();
 
     //TODO: Make a unsafe version determined by arguments, allowing infinite amount of bots.
     public static void main(String[] args) {
-        if(dbIn.CheckConnection()){
+        if(dbCtrl.CheckConnection()){
             if(args.length == 0){
                 acceptURL();
             }
@@ -23,8 +23,7 @@ public class Main {
             switch (arg) {
                 case "--unsafe" -> acceptURL(300);
                 case "--flush" -> {
-                    dbIn.FLUSHData();
-                    System.out.println("Flushed all data from database.");
+                    dbCtrl.FLUSHData();
                     acceptURL();
                 }
                 default -> {

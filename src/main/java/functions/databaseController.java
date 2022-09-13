@@ -3,7 +3,7 @@ package functions;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DatabaseINSERT {
+public class databaseController {
 
     public boolean CheckConnection(){
         Connection conn = null;
@@ -48,6 +48,7 @@ public class DatabaseINSERT {
         try(Connection conn = this.connect();
         PreparedStatement statement = conn.prepareStatement(sql)){
             statement.execute();
+            System.out.println("Flushed all data out of the database.");
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }

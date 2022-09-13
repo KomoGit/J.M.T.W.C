@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Crawler implements Runnable{
-    DatabaseINSERT dbIn = new DatabaseINSERT();
+    databaseController dbIn = new databaseController();
     private final ArrayList<String> DataCollection = new ArrayList<>();
 
     private static int DEPTH = 3;
