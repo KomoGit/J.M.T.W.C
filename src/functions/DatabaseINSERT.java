@@ -43,6 +43,15 @@ public class DatabaseINSERT {
             System.out.println(e.getMessage());
         }
     }
+    public void FLUSHData(){
+        String sql = "DELETE FROM Sites";
+        try(Connection conn = this.connect();
+        PreparedStatement statement = conn.prepareStatement(sql)){
+            statement.execute();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
     private Connection connect() {
         final String DBURL = "jdbc:sqlite:Database/SiteIndex";
         Connection conn = null;

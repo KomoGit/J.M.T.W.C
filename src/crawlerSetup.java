@@ -7,13 +7,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class userCLI {
+public class crawlerSetup {
 
     //TODO: Make the set private and apply get and set.
     public final Set<String> URLSet = new HashSet<>();
     private final ArrayList<String> validURL = new ArrayList<>();
     public void prepareCrawler(){
-
         ArrayList<String> arr = new ArrayList<>(URLSet);
         var validated = arr.stream().filter(this::validateURL).collect(Collectors.toSet());
         validURL.addAll(validated);
