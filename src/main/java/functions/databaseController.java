@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class databaseController {
 
-    public boolean CheckConnection(){
+    public static boolean CheckConnection(){
         Connection conn = null;
         try{
             final String DBURL = "jdbc:sqlite:Database/SiteIndex";
@@ -42,6 +42,9 @@ public class databaseController {
         catch (SQLException e){
             System.out.println(e.getMessage());
         }
+    }
+    public void GenerateDatabase(){
+
     }
     public void FLUSHData(){
         String sql = "DELETE FROM Sites";
