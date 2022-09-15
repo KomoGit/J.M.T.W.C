@@ -44,7 +44,7 @@ public class databaseController {
         }
     }
     public void GenerateDatabase(){
-
+        
     }
     public void FLUSHData(){
         String sql = "DELETE FROM Sites";
