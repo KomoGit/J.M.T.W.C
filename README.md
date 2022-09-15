@@ -29,7 +29,8 @@ I will fix this in next commits so the folder and DB are automatically created.
 ## Arguments 
 - For now there are two arguments available for you to take advantage of.
 - `--flush` can be used to remove everything inside the database.
-- `--unsafe`  can be used to remove limit for amount of links you can insert.
+- `--unsafe` can be used to remove limit for amount of links you can insert.
+- `--generate` can be used to generate database if it doesn't exist yet.
 
 ## Current Known Bugs
 - Crawler when facing phone numbers crash out because it is not a viable URL.
