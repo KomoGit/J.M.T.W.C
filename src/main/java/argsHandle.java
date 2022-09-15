@@ -14,6 +14,11 @@ public class argsHandle {
                     dbCtrl.FLUSHData();
                     acceptURL();
                 }
+                case "--generate"-> {
+                    System.out.println("Generating Database.");
+                    dbCtrl.GenerateDatabase();
+                    acceptURL();
+                }
                 default -> {
                     System.out.println("Invalid argument. Proceeding normally.");
                     acceptURL();

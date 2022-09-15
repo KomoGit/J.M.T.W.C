@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class databaseController {
 
+
     public static boolean CheckConnection(){
         Connection conn = null;
         try{
@@ -41,10 +42,22 @@ public class databaseController {
         }
         catch (SQLException e){
             System.out.println(e.getMessage());
+            GenerateDatabase();
         }
     }
     public void GenerateDatabase(){
-        
+        String sql = "CREATE TABLE Sites(\n" +
+                "Web_Url TEXT,\n" +
+                "Bot_Id INTEGER,\n" +
+                "Title TEXT\n" +
+                ");";
+        try(Connection conn = this.connect()){
+            Statement statement = conn.createStatement();{
+                statement.execute(sql);
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
     public void FLUSHData(){
         String sql = "DELETE FROM Sites";
