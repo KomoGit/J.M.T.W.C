@@ -1,4 +1,5 @@
-import functions.databaseController;
+import database.databaseController;
+import functions.argsHandle;
 
 public class Main {
     //TODO: Make a unsafe version determined by arguments, allowing infinite amount of bots.(Done)

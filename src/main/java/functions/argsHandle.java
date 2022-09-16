@@ -1,4 +1,7 @@
-import functions.databaseController;
+package functions;
+
+import crawler.crawlerSetup;
+import database.databaseController;
 
 import java.util.Scanner;
 

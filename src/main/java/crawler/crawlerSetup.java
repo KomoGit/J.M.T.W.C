@@ -1,4 +1,6 @@
-import functions.Crawler;
+package crawler;
+
+import crawler.Crawler;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -54,4 +56,5 @@ public class crawlerSetup {
         Matcher matcher = pattern.matcher(input);
         return matcher.find();
     }
+
 }
