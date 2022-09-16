@@ -18,6 +18,7 @@ Credit mostly goes to [CodingWithTim](https://www.youtube.com/c/CodingWithTim) a
 - Insert the URL(S) you wish to crawl,
 - Determine depth of crawl for bots,
 - Press enter and let the magic happen.
+- Database generated is SQLite, use [DBBrowser](https://sqlitebrowser.org/) to check contents of Database. It is free and open-source.
 
 ## Setup
 You are required to Create a folder inside named 'Database',
