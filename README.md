@@ -35,6 +35,7 @@ I will fix this in next commits so the folder and DB are automatically created.
 
 ## TODO:
 - Enable build and compile via Maven.
+- GUI.
 
 ## Current Known Bugs
 - Crawler when facing phone numbers crash out because it is not a viable URL.
