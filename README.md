@@ -23,10 +23,7 @@ Credit mostly goes to [CodingWithTim](https://www.youtube.com/c/CodingWithTim) a
 
 ## Setup
 You are required to Create a folder inside named 'Database',
-- Create a SQLite Database inside the folder named : 'SiteIndex'
-- Inside this database, create a table named Sites.
-- Sites table should contain 3 rows : Web_Url,Bot_Id,Title. All of which are case sensitive.
-I will fix this in next commits so the folder and DB are automatically created.
+- Add `--generate` argument to create the database and tables automatically.
 
 ## Arguments 
 - For now there are two arguments available for you to take advantage of.
