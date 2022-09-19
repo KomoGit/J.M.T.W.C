@@ -40,7 +40,6 @@ public class crawlerSetup {
         catch (IndexOutOfBoundsException e){
             return;
         }
-
         for(Crawler w : bots){
             try {
                 w.getThread().join();
