@@ -33,6 +33,9 @@ I will fix this in next commits so the folder and DB are automatically created.
 - `--unsafe` can be used to remove limit for amount of links you can insert.
 - `--generate` can be used to generate database if it doesn't exist yet.
 
+## TODO:
+- Enable build and compile via Maven.
+
 ## Current Known Bugs
 - Crawler when facing phone numbers crash out because it is not a viable URL.
 
