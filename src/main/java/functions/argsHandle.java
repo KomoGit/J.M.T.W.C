@@ -10,24 +10,46 @@ public class argsHandle {
     private static final crawlerSetup CRAWLER_SETUP = new crawlerSetup();
     private static final databaseController dbCtrl = new databaseController();
     public static void argumentHandler(String[] args){
-        for(String arg : args){//Add more arguments here.
-            switch (arg) {
-                case "--unsafe" -> acceptURL(300);
-                case "--flush" -> {
-                    dbCtrl.FLUSHData();
-                    acceptURL();
-                }
-                case "--generate"-> {
-                    System.out.println("Generating Database.");
-                    dbCtrl.GenerateDatabase();
-                    acceptURL();
-                }
-                default -> {
-                    System.out.println("Invalid argument. Proceeding normally.");
-                    acceptURL();
+        if(args.length == 0){
+            acceptURL();
+        }else{
+            for(String arg : args){//Add more arguments here.
+                switch (arg) {
+                    case "--unsafe" -> acceptURL(300);
+                    case "--flush" -> {
+                        dbCtrl.FLUSHData();
+                        acceptURL();
+                    }
+                    case "--generate"-> {
+                        System.out.println("Generating Database.");
+                        dbCtrl.GenerateDatabase();
+                        acceptURL();
+                    }
+                    default -> {
+                        System.out.println("Invalid argument(s). Proceeding normally.");
+                        acceptURL();
+                    }
                 }
             }
         }
+//        for(String arg : args){//Add more arguments here.
+//            switch (arg) {
+//                case "--unsafe" -> acceptURL(300);
+//                case "--flush" -> {
+//                    dbCtrl.FLUSHData();
+//                    acceptURL();
+//                }
+//                case "--generate"-> {
+//                    System.out.println("Generating Database.");
+//                    dbCtrl.GenerateDatabase();
+//                    acceptURL();
+//                }
+//                default -> {
+//                    System.out.println("Invalid argument(s). Proceeding normally.");
+//                    acceptURL();
+//                }
+//            }
+//        }
     }
     private static void acceptURL(){//Safe mode
         System.out.print("Insert URLs, 5 at max: (TYPE BREAK IF YOU WISH TO STOP ADDING FURTHER URLS)");

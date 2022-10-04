@@ -1,10 +1,8 @@
 package crawler;
 
 import crawler.Crawler;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
-import java.util.Set;
+
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -26,8 +24,13 @@ public class crawlerSetup {
             System.out.println("Ready, number of bots that will be added: " + validURL.size());
             Scanner scn = new Scanner(System.in);
             System.out.println("Insert the depth you wish bot(s) to visit. (MAX 5 DEFAULT 3)");
-            int depth = scn.nextInt();
-            StartCrawler(depth);
+            try{
+                int depth = scn.nextInt();
+                StartCrawler(depth);
+            }catch (InputMismatchException e){
+                System.out.println("Input is invalid / Not a number, setting default.");
+                StartCrawler(3);
+            }
         }
     }
     public void StartCrawler(int Depth){
