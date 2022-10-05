@@ -18,8 +18,8 @@ public class crawlerSetup {
         validURL.addAll(validated);
 
         if(validURL.isEmpty()){
-            System.out.println("Warning, no viable URL found");
-            throw new IllegalArgumentException();
+            System.out.println("Warning, no viable URL found, re-run program with viable urls.");
+            System.exit(0);
         }else{
             System.out.println("Ready, number of bots that will be added: " + validURL.size());
             Scanner scn = new Scanner(System.in);
