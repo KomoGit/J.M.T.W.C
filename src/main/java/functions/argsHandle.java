@@ -18,7 +18,6 @@ public class argsHandle {
         }else{
             System.out.println("Argument count: " + args.length);
             for (int i = 0; i < args.length; i++) {
-                System.out.println("Argument " + i + ": " + args[i]);
                 switch (args[i]) {
                     case "--unsafe" -> acceptURL(300);
                     case "--flush" -> dbCtrl.FLUSHData();
