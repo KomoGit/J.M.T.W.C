@@ -9,47 +9,25 @@ public class argsHandle {
     private static final Scanner scn = new Scanner(System.in);
     private static final crawlerSetup CRAWLER_SETUP = new crawlerSetup();
     private static final databaseController dbCtrl = new databaseController();
+
+    /*Issue is that I need the loop to keep going until all arguments have been settled.
+    * Question is how do I create the loop?*/
     public static void argumentHandler(String[] args){
         if(args.length == 0){
             acceptURL();
         }else{
-            for(String arg : args){//Add more arguments here.
-                switch (arg) {
+            System.out.println("Argument count: " + args.length);
+            for (int i = 0; i < args.length; i++) {
+                System.out.println("Argument " + i + ": " + args[i]);
+                switch (args[i]) {
                     case "--unsafe" -> acceptURL(300);
-                    case "--flush" -> {
-                        dbCtrl.FLUSHData();
-                        acceptURL();
-                    }
-                    case "--generate"-> {
-                        System.out.println("Generating Database.");
-                        dbCtrl.GenerateDatabase();
-                        acceptURL();
-                    }
-                    default -> {
-                        System.out.println("Invalid argument(s). Proceeding normally.");
-                        acceptURL();
-                    }
+                    case "--flush" -> dbCtrl.FLUSHData();
+                    case "--generate"-> dbCtrl.GenerateDatabase();
+                    default -> System.out.println("Invalid argument(s). Proceeding normally.");
                 }
             }
+            acceptURL();
         }
-//        for(String arg : args){//Add more arguments here.
-//            switch (arg) {
-//                case "--unsafe" -> acceptURL(300);
-//                case "--flush" -> {
-//                    dbCtrl.FLUSHData();
-//                    acceptURL();
-//                }
-//                case "--generate"-> {
-//                    System.out.println("Generating Database.");
-//                    dbCtrl.GenerateDatabase();
-//                    acceptURL();
-//                }
-//                default -> {
-//                    System.out.println("Invalid argument(s). Proceeding normally.");
-//                    acceptURL();
-//                }
-//            }
-//        }
     }
     private static void acceptURL(){//Safe mode
         System.out.print("Insert URLs, 5 at max: (TYPE BREAK IF YOU WISH TO STOP ADDING FURTHER URLS)");

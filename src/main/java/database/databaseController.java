@@ -46,6 +46,7 @@ public class databaseController {
         }
     }
     public void GenerateDatabase(){
+        System.out.println("Generating Database.");
         String sql = "CREATE TABLE Sites(\n" +
                 "Web_Url TEXT,\n" +
                 "Bot_Id INTEGER,\n" +
