@@ -7,8 +7,6 @@ J.M.T.W.C, is a free and open source web crawler powered by [JSOUP](https://jsou
 Credit mostly goes to [CodingWithTim](https://www.youtube.com/c/CodingWithTim) as this is built upon his Crawler Tutorial Series with additional features added in by me. The additional features being.....
  
 ## Features
-
-- Multi-threaded Web Crawling.
 - Allowing user to choose which site(s) they wish to crawl (via CLI).
 - Allowing user to choose the depth of the bot(s).
 - Database storage of the links.
