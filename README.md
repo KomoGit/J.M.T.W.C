@@ -1,4 +1,4 @@
-# J.M.T.W.C
+# J.M.T.W.C (_Java Multithreaded Web Crawler_)
 ## _Java Multithreaded Web Crawler_
 [![JMTWC at work](https://iili.io/4TvVDX.md.png)](https://freeimage.host/i/4TvVDX)
 
