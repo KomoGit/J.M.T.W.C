@@ -23,7 +23,7 @@ You are required to Create a folder inside named 'Database',
 - Add `--generate` argument to create the database and tables automatically.
 
 ## Arguments 
-- For now there are two arguments available for you to take advantage of.
+For now there are two arguments available for you to take advantage of.
 - `--flush` can be used to remove everything inside the database.
 - `--unsafe` can be used to remove limit for amount of links you can insert.
 - `--generate` can be used to generate database if it doesn't exist yet.
