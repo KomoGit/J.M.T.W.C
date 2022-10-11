@@ -37,3 +37,6 @@ You are required to Create a folder inside named 'Database',
 
 ## Lisence
 You can modifiy and use the project as it is GPL-3 Lisence. As free as it gets when it comes to FOSS.
+
+## PS:
+I saw that this project actually has 18 clones, which is actually more than I expected. I wanna thank those who has cloned my project and used it. It feels good that my project is solving actual real life issues :) Thank you from the bottom of my heart.
