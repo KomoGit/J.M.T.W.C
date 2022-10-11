@@ -27,6 +27,7 @@ You are required to Create a folder inside named 'Database',
 - `--flush` can be used to remove everything inside the database.
 - `--unsafe` can be used to remove limit for amount of links you can insert.
 - `--generate` can be used to generate database if it doesn't exist yet.
+- `--force-crawl` can be used to force the crawler to go through a link that is not valid. (UPCOMING)
 
 ## TODO:
 - Enable build and compile via Maven.
