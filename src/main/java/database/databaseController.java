@@ -2,14 +2,13 @@ package database;
 
 import java.sql.*;
 import java.util.ArrayList;
-
+/*There is a lot of ROOM to try and implement DRY principles here. Some commands are being repeated multiple times.*/
+/*The connection is established multiple times. Best to do it once and use a single connection across the methods.*/
 public class databaseController {
-
-
+    private static final String DBURL = "jdbc:sqlite:Database/SiteIndex";
     public static boolean CheckConnection(){
         Connection conn = null;
         try{
-            final String DBURL = "jdbc:sqlite:Database/SiteIndex";
             conn = DriverManager.getConnection(DBURL);
             System.out.println("Connection to database has been established!");
             return true;
@@ -29,7 +28,6 @@ public class databaseController {
             }
         }
     }
-
     public void INSERTData(ArrayList<String> Collection){
         String sql = "INSERT INTO Sites(Web_Url,Bot_Id,Title) VALUES(?,?,?)";
         try(Connection conn = this.connect();
@@ -45,33 +43,7 @@ public class databaseController {
             GenerateDatabase();
         }
     }
-    public void GenerateDatabase(){
-        System.out.println("Generating Database.");
-        String sql = "CREATE TABLE Sites(\n" +
-                "Web_Url TEXT,\n" +
-                "Bot_Id INTEGER,\n" +
-                "Title TEXT\n" +
-                ");";
-        try(Connection conn = this.connect()){
-            Statement statement = conn.createStatement();{
-                statement.execute(sql);
-            }
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
-    }
-    public void FLUSHData(){
-        String sql = "DELETE FROM Sites";
-        try(Connection conn = this.connect();
-        PreparedStatement statement = conn.prepareStatement(sql)){
-            statement.execute();
-            System.out.println("Flushed all data out of the database.");
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
-    }
     private Connection connect() {
-        final String DBURL = "jdbc:sqlite:Database/SiteIndex";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(DBURL);
@@ -79,5 +51,32 @@ public class databaseController {
             System.out.println(e.getMessage());
         }
         return conn;
+    }
+    // Argument methods.
+    public void FLUSHData(){
+        String sql = "DELETE FROM Sites";
+        try(Connection conn = this.connect();
+            PreparedStatement statement = conn.prepareStatement(sql)){
+            statement.execute();//DRY
+            System.out.println("Flushed all data out of the database.");
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public void GenerateDatabase(){
+        System.out.println("Generating Database.");
+        String sql = """
+                CREATE TABLE Sites(
+                Web_Url TEXT,
+                Bot_Id INTEGER,
+                Title TEXT
+                );""";
+        try(Connection conn = this.connect()){
+            Statement statement = conn.createStatement();{
+                statement.execute(sql);
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
