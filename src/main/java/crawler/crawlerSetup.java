@@ -53,24 +53,10 @@ public class crawlerSetup {
             }
         }
     }
-    private boolean validateURL(String url)
-    {
-        /* Try creating a valid URL */
-        try {
-            new URL(url).toURI();
-            return true;
-        }
-        // If there was an Exception
-        // while creating URL object
-        catch (Exception e) {
-            return false;
-        }
+    private boolean validateURL(String input){
+        String urlRegex = "((http://|https://)?(www.)??(.com)??(.org)??(.net)??(.info)??(.az)?(([a-zA-Z0-9-]){2,}\\.){1,4}([a-zA-Z]){2,6}(/([a-zA-Z-_/.0-9#:?=&;,]*)?)?)";
+        Pattern pattern = Pattern.compile(urlRegex);
+        Matcher matcher = pattern.matcher(input);
+        return matcher.find();
     }
-//    private boolean validateURL(String input){
-//        String urlRegex = "((http://|https://)?(www.)??(.com)??(.org)??(.net)??(.info)??(.az)?(([a-zA-Z0-9-]){2,}\\.){1,4}([a-zA-Z]){2,6}(/([a-zA-Z-_/.0-9#:?=&;,]*)?)?)";
-//        Pattern pattern = Pattern.compile(urlRegex);
-//        Matcher matcher = pattern.matcher(input);
-//        return matcher.find();
-//    }
-
 }
